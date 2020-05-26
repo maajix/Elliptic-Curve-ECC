@@ -202,6 +202,7 @@ public:
     }  
 };
 
+//NICHT TEIL DER AUFGABE
 class DHKey
 {
 private:
@@ -260,12 +261,14 @@ public:
         }
     }
 };
+//NICHT TEIL DER AUFGABE
+
 
 int main()
 {
     ELCurve ecc(2, 2, 17);
     
-    // Finde alle möglichen Punkte auf der Kurve
+    // Finde alle mÃ¶glichen Punkte auf der Kurve
     // ecc.findAllPoints(false, true); 
 
     /*
@@ -291,7 +294,7 @@ int main()
 
     [1] ri = 3 oder 16 
 
-    MÖGLICHE A (schauen in liste):
+    MÃ–GLICHE A (schauen in liste):
     6:  (3/1)
     9:  (16/13)
     10: (16/4)

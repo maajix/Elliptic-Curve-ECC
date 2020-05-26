@@ -292,7 +292,7 @@ int main()
     17 (9/16)
     18 (0/11)
 
-    [1] ri = 3 oder 16 
+    *[1] ri = 3 oder 16 
 
     MÖGLICHE A (schauen in liste):
     6:  (3/1)
@@ -313,8 +313,8 @@ int main()
     ti = phi(3 * {7,11}) = {13, 10} = 13 mod 8 = 5 CHECKED
     */
 
-    // [1]
-    /* ri bestimmung (probieren aller x koordinaten)
+    // *[1]
+    /* ri bestimmung (probieren aller x koordinaten. muss 5 oder 13 ergeben => ti)
     Point x  = ecc.pCalc(0, Q);
     Point x1 = ecc.pCalc(3, Q);
     Point x2 = ecc.pCalc(5, Q);

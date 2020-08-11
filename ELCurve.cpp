@@ -117,7 +117,6 @@ public:
         Point tmp = Q;
         for (int i = 1; i < mul; i++)
         {
-            //cout << "("<<tmp.x << "/" << tmp.y << ") + (" << Q.x << "/" << Q.y << ")"<< endl;
             tmp = pCalc(tmp, Q);
         }
         return tmp;
@@ -202,7 +201,6 @@ public:
     }  
 };
 
-//NICHT TEIL DER AUFGABE
 class DHKey
 {
 private:
@@ -261,99 +259,3 @@ public:
         }
     }
 };
-//NICHT TEIL DER AUFGABE
-
-
-int main()
-{
-    ELCurve ecc(2, 2, 17);
-    
-    // Finde alle möglichen Punkte auf der Kurve
-    // ecc.findAllPoints(false, true); 
-
-    /*
-    alle punkte auf der kurve
-    1  (0/6)
-    2  (9/1)
-    3  (6/3)
-    4  (7/6)
-    5  (10/11)
-    6  (3/1)
-    7  (13/10)
-    8  (5/16)
-    9  (16/13)
-    10 (16/4)
-    11 (5/1)
-    12 (13/7)
-    13 (3/16)
-    14 (10/6)
-    15 (7/11)
-    16 (6/14)
-    17 (9/16)
-    18 (0/11)
-
-    *[1] ri = 3 oder 16 
-
-    MÖGLICHE A (schauen in liste):
-    6:  (3/1)
-    9:  (16/13)
-    10: (16/4)
-    13: (3/16)
-
-    phi(ri * P) 
-    (3*{0,6})  = (6,3)  = 6
-    (16*{0,6}) = (6,14) = 6 
-
-    si+1 = 6
-
-    ri = phi(si *P)
-    ri = phi(6, {0,6}) = {3,1} = 3
-
-    ti = phi(ri * Q)
-    ti = phi(3 * {7,11}) = {13, 10} = 13 mod 8 = 5 CHECKED
-    */
-
-    // *[1]
-    /* ri bestimmung (probieren aller x koordinaten. muss 5 oder 13 ergeben => ti)
-    Point x  = ecc.pCalc(0, Q);
-    Point x1 = ecc.pCalc(3, Q);
-    Point x2 = ecc.pCalc(5, Q);
-    Point x3 = ecc.pCalc(6, Q);
-    Point x4 = ecc.pCalc(7, Q);
-    Point x5 = ecc.pCalc(9, Q);
-    Point x6 = ecc.pCalc(10, Q);
-    Point x7 = ecc.pCalc(13, Q);
-    Point x8 = ecc.pCalc(16, Q);
-    ecc.print_data(x);
-    ecc.print_data(x1);
-    ecc.print_data(x2);
-    ecc.print_data(x3);
-    ecc.print_data(x4);
-    ecc.print_data(x5);
-    ecc.print_data(x6);
-    ecc.print_data(x7);
-    ecc.print_data(x8);
-    */
-
-    ecc.findAllPoints(false, true);
-
-    Point si1_1 = ecc.pCalc(3, { 0,6 });
-    ecc.print_data(si1_1); 
-    cout << "si+1(1) x: " << si1_1.x << endl << endl;
-
-    Point si1_2 = ecc.pCalc(16, { 0,6 });
-    ecc.print_data(si1_2);
-    cout << "si+1(2) x: " << si1_2.x << endl << endl;
-
-    Point ri = ecc.pCalc(6, { 0,6 });
-    ecc.print_data(ri);
-    cout << "ri x: " << ri.x << endl << endl;
-
-    Point ti = ecc.pCalc(3, { 7,11 });
-    ecc.print_data(ti);
-    cout << "ti x: " << ti.x << endl << endl;
-    cout << "CHECK: " << ti.x << " mod 8 = "<< ti.x % 8 << endl;
-
-
-    std::cin.get();
-}
